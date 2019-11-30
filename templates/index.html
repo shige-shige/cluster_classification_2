@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Which clustor?</title>
+</head>
+  <body>
+    <p>縦長の写真をアップロードしてください！</p>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <button type="submit">分析</button>
+    </form>
+    <div>
+      ファイル名：
+      {% if filename %}
+      {{ filename }}
+      {% endif %}
+    </div>
+    <br>
+    <div>
+      雑誌名：
+      {% if predicted %}
+      {{ predicted }}
+      {% endif %}
+    </div>
+    <br>
+    <div>
+      確率：
+      {% if percentage %}
+      {{ percentage }} %
+      {% endif %}
+    </div>
+    <br>
+    <p>分析の都度「リセット」すること！</p>
+    <form action="/reset">
+      <button type="submit">リセット</button>
+    </form>
+  </body>
+</html>
